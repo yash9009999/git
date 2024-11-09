@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Images</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+    <style>
+        * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(5deg, #182131, #4b6797);
+  overflow: hidden;
+}
+.grey_cir {
+  background-color: rgb(247, 247, 247);
+  display: block;
+  border-radius: 100%;
+  background-color: rgba(255, 252, 252, 0.27);
+}
+
+#c_1 {
+  height: 50vh;
+  width: 30vw;
+  margin-left: -10vw;
+  margin-top: -20vh;
+  scale: 1.5;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+#c_2 {
+  height: 30vh;
+  width: 18vw;
+  margin-right: -9vw;
+  margin-top: -10vh;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.h_c {
+  display: flex;
+  justify-content: space-between;
+}
+.main {
+  align-items: center;
+  margin-top: -19vh;
+}
+#c_3 {
+  height: 16vh;
+  width: 10vw;
+  margin-left: -5vw;
+  scale: 1.5;
+  margin-top: 7vh;
+}
+#rect {
+  height: 84vh;
+  background: linear-gradient(to bottom, #60bafa, #a054fc);
+  width: 18vw;
+  display: block;
+  margin-right: 5vh;
+  margin-top: -3vh;
+  border-radius: 30px;
+  opacity: 60%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  z-index: 0;
+}
+.circles {
+  position: grid;
+  margin-top: -76vh;
+  margin-left: 61vw;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+#c_4 {
+  height: 60vh;
+  width: 36vw;
+  background-color: rgba(255, 252, 252, 1);
+  opacity: 5%;
+  position: fixed;
+}
+#d_4 {
+  height: 60vh;
+  width: 36vw;
+  position: fixed;
+  z-index: 999;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+img {
+  position: fixed;
+  margin-left: 17vw;
+  rotate: -9deg;
+  scale: 0.9;
+}
+.c_1 {
+  height: 1.6vh;
+  width: 1vw;
+  background-color: #780efa;
+  display: block;
+  border-radius: 100%;
+  border: 2px solid white;
+  position: fixed;
+  margin-left: 17.5vw;
+  margin-top: 3.8vh;
+  opacity: 100%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.c_2 {
+  height: 1.6vh;
+  width: 1vw;
+  background-color: gray;
+  display: block;
+  border-radius: 100%;
+  border: 2px solid white;
+  position: fixed;
+  margin-left: 32vw;
+  margin-top: 20vh;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+#c_5 {
+  height: 40vh;
+  width: 24vw;
+  background-color: #a1b1dc;
+  border-radius: 100%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.mm,
+#c_5 {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+#m1 {
+  height: 20vh;
+  width: 12vw;
+  background-color: white;
+  border-radius: 100%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+#m2 {
+  height: 14vh;
+  width: 8vw;
+  background-color: rgb(12, 12, 12);
+  border-radius: 100%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+form {
+  position: fixed;
+  color: white;
+  margin-top: 10vh;
+  margin-left: 7vw;
+  h1 {
+    font-size: 7vh;
+  }
+  #base_name {
+    margin-top: 8vh;
+  }
+  /* Basic styling for input field */
+  input[type="text"] {
+    width: 50%; /* Full width */
+    padding: 10px; /* Inner padding for better user experience */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px;
+    color: goldenrod; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    box-sizing: border-box; /* Ensures padding is included in the element's width */
+    transition: border-color 0.3s ease; /* Smooth transition for hover and focus effects */
+    background: linear-gradient(to left, #60bafa, #a054fc);
+  }
+
+  /* Change border color on focus */
+  input[type="text"]:focus {
+    border-color: #4a90e2; /* Border color on focus */
+    outline: none; /* Remove default outline */
+  }
+
+  /* Style for input in error state */
+  input[type="text"].error {
+    border-color: #e74c3c; /* Red border for errors */
+  }
+
+  /* Optional: Disabled state */
+  input[type="text"]:disabled {
+    background-color: #f2f2f2; /* Light gray background for disabled input */
+    cursor: not-allowed; /* Change cursor */
+  }
+  /* Hide default file input */
+input[type="file"] {
+    display: none;
+}
+
+/* Custom file upload button */
+label.file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(to left, #60bafa, #a054fc);
+    color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: opacity 0.4s ease;
+    margin-bottom: 10px; /* Adds space below the button */
+}
+
+/* Hover effect for file upload button */
+label.file-upload:hover {
+    opacity: 60%;
+}
+
+/* Style for submit button */
+button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #a1b1dc; /* Green background */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for submit button */
+button[type="submit"]:hover {
+    background-color: #7996e4;
+}
+
+/* Optional: Disabled state for submit button */
+button[type="submit"]:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+}
+
+    </style>
+</head>
+<body>
+    <div class="h_c">
+        <span class="grey_cir" id="c_1"></span>
+        <span class="grey_cir" id="c_2"></span>
+    </div>
+    <div class="main h_c">
+        <span class="grey_cir" id="c_3"></span>
+        <div id="rect"></div>
+    </div>
+    <div class="circles">
+        <span class="grey_cir" id="c_4"></span>
+        <span class="grey_cir" id="d_4">
+          
+            <span class="c_1"></span>
+            <span class="c_2"></span>
+            <div id="c_5">
+                <div class="mm" id="m1">
+                    <div class="mm" id="m2"></div>
+                </div>
+            </div>
+        </span>
+    </div>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <h1>Upload Images and Set Base</h1>
+        <h1>Name for Contacts</h1>
+        <input type="text" id="base_name" name="base_name"  placeholder="Base Name for Contact" required>
+        <br><br>
+        <input type="file" id="images" name="images" multiple required>
+<label for="images" class="file-upload">Choose Images</label>
+<br><br>
+<button type="submit">Upload and Extract Contacts</button>
+
+    </form>
+</body>
+</html>

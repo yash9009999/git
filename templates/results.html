@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Extracted Content and Contacts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Extracted Content and Contacts from Uploaded Images</h1>
+
+    {% if csv_file %}
+        <!-- Download CSV Button -->
+        <button onclick="window.location.href='{{ url_for('download_csv', csv_file=csv_file) }}'">
+            Download All Contacts CSV
+        </button>
+    {% endif %}
+    
+    {% for image in images %}
+        <div style="margin: 20px; display: flex; width: 95vw; justify-content: space-between; align-items: center;">
+            <div style="display: grid; align-items: center; align-content: center; height: 90vh; width: 30vw;">
+                
+                <img src="{{ url_for('static', filename='uploads/' + image.renamed_name) }}" alt="Uploaded Image" width="300/">
+                <h3>Image: {{ image.original_name }}</h3>
+            </div>
+            <div style="width: 35vw; display: grid; align-items: center; align-content: center; height: 90vh">
+                <h4>Extracted Text:</h4>
+            <p>{{ image.extracted_text }}</p>
+            
+            <h4>Identified Contacts:</h4>
+            <p>{{ image.contacts }}</p>
+            </div>
+        </div>
+    {% endfor %}
+    
+    <a href="{{ url_for('upload_form') }}">Upload More Images</a>
+</body>
+</html>
